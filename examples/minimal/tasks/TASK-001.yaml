@@ -1,11 +1,27 @@
 id: TASK-001
 objective: Define the future contract boundary for the fictional request and scheduling flow.
+owner: fictional documentation team
+depends_on: []
+status: in_progress
+stage: Specification
 sources: [sources/source.md]
 decisions: [ADR-001]
 requirements: [REQ-001, REQ-002]
 scope: Create only the contract specification; exclude implementation and deployment.
 acceptance: The trace identifies approval ownership, dependency and planned negative test.
-open_decisions: The fictional notification mechanism remains undecided.
-blockers: No external blocker; future contract approval is required before implementation.
+acceptance_criteria:
+  - id: AC-TRACE
+    status: met
+    evidence: traceability.yaml
+  - id: AC-CONTRACT-APPROVAL
+    status: pending
+open_decisions:
+  - action: Choose the fictional notification mechanism.
+    owner: fictional supervisor role
+    impact: Notification details cannot be specified until this choice is recorded.
+blockers: []
 autonomy: The task may refine documentation links but cannot approve a contract or change the decision.
 limits: Do not create a runtime API or claim executed test evidence.
+resume:
+  file: status.md
+  section: Status

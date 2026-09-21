@@ -67,6 +67,12 @@ python -m harness.spec_harness context --root . --task TASK-001
 # Atualiza hashes de fontes após análise humana de uma alteração.
 python -m harness.spec_harness hash --root .
 
+# Exibe o painel atual sem gravar arquivos.
+python -m harness.spec_harness dashboard --root . --task TASK-001
+
+# Registra explicitamente uma rodada revisada.
+python -m harness.spec_harness close-round --root . --round-file round-input.yaml
+
 # Executa os testes do próprio harness.
 python -m unittest discover -s tests -p "test_*.py"
 ```
@@ -77,7 +83,26 @@ python -m unittest discover -s tests -p "test_*.py"
 
 `hash` não é uma aprovação. Quando uma fonte muda, primeiro analise quais requisitos e evidências foram afetados. Só então atualize o manifesto de fontes. A evidência ainda precisa ser revisada ou substituída conscientemente.
 
-## 6. Como interpretar os estados
+`dashboard` é somente leitura. Ele mostra a localização atual, progresso com numerador e denominador, contagens, bloqueios, decisões abertas, validação, gates e próximas ações. `close-round` executa a verificação completa e grava um snapshot em `rounds/`. Consulte as [regras canônicas do dashboard](dashboard-de-rodadas.md) para conhecer os campos e cálculos.
+
+## 6. Fechamento de rodada
+
+Ao terminar uma rodada documental, preencha uma cópia de [`templates/round-input.yaml`](../templates/round-input.yaml). Primeiro visualize a proposta:
+
+```bash
+python -m harness.spec_harness dashboard --root . --round-file round-input.yaml
+```
+
+Revise resumo, documentos alterados, decisões, progresso, bloqueios e ponto de retomada. Depois registre:
+
+```bash
+python -m harness.spec_harness close-round --root . --round-file round-input.yaml
+python -m harness.spec_harness dashboard --root . --round ROUND-001
+```
+
+O fechamento também deve ocorrer quando a rodada terminar bloqueada ou parcialmente concluída. Uma mudança de escopo precisa declarar inclusão, remoção ou cancelamento e seu motivo. O fechamento não atualiza hashes e não concede aprovação.
+
+## 7. Como interpretar os estados
 
 | Elemento | Estados aceitos | Significado |
 |---|---|---|
@@ -89,7 +114,7 @@ python -m unittest discover -s tests -p "test_*.py"
 
 Esses estados evitam uma conclusão falsa, como chamar um contrato futuro de API pronta ou chamar um teste planejado de teste realizado.
 
-## 7. Como integrar com o Codex ou outra IA
+## 8. Como integrar com o Codex ou outra IA
 
 O harness funciona com Codex, Claude Code, OpenCode, Cursor, DeepSeek Harness ou qualquer IA que possa ler arquivos e executar comandos Python. Ele não depende de MCP, token, extensão de editor ou conversa anterior.
 
@@ -101,6 +126,7 @@ python -m harness.spec_harness context --root . --task TASK-001
 Use somente os artefatos versionados como fonte de verdade.
 Antes de encerrar, execute:
 python -m harness.spec_harness check --root .
+Visualize e registre o fechamento conforme docs/dashboard-de-rodadas.md.
 Informe arquivos alterados, validações e pendências.
 ```
 
@@ -108,13 +134,13 @@ Passe o resultado de `context` para a IA ou peça que ela execute o comando. O p
 
 Se você já usa outro harness, integre este como a camada de rastreabilidade documental. Escolha um único arquivo canônico para cada tipo de informação. Não copie a mesma decisão para dois registros, nem crie um segundo status para o mesmo requisito.
 
-## 8. Posso usar sem Codex?
+## 9. Posso usar sem Codex?
 
 Sim. O nome do projeto indica o primeiro caso de uso, mas o componente é uma CLI Python e arquivos versionados. Você pode usá-lo sem nenhuma IA, com outra ferramenta de IA ou dentro de um processo humano de revisão documental.
 
 Também pode colocá-lo ao lado de GSD, um sistema de ADRs ou um processo interno. O harness não substitui esses processos; ele registra referências e impede que metadados sejam confundidos com evidência.
 
-## 9. Erros comuns
+## 10. Erros comuns
 
 **`source_changed`** — a fonte foi alterada desde o hash registrado. Compare a mudança, avalie o impacto nos requisitos e evidências, depois use `hash` se a alteração for aceita.
 
@@ -126,7 +152,11 @@ Também pode colocá-lo ao lado de GSD, um sistema de ADRs ou um processo intern
 
 **`packet_over_budget`** — o pacote de tarefa excede `context.max_words`. Reduza o escopo, substitua texto repetido por referências ou divida a tarefa. Não aumente o limite apenas para acomodar histórico desnecessário.
 
-## 10. Limites importantes
+**`round_conflict`** — o identificador da rodada já foi registrado com conteúdo diferente. Use o registro existente ou um novo identificador; o histórico não é sobrescrito silenciosamente.
+
+**`undocumented_scope_change`** — entregas foram incluídas ou removidas desde a rodada anterior sem justificativa em `scope_changes`.
+
+## 11. Limites importantes
 
 O harness não protege sozinho dados pessoais, credenciais ou informações confidenciais. Não armazene segredos em fontes, exemplos, evidências ou logs. A verificação de padrões de segredo é preventiva e conservadora; ela não substitui uma revisão de segurança.
 

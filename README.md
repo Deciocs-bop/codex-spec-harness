@@ -16,10 +16,13 @@ Each arrow is a versioned reference. The validator distinguishes an approved con
 python -m pip install -r requirements.txt
 python -m harness.spec_harness check --root examples/minimal
 python -m harness.spec_harness context --root examples/minimal --task TASK-001
+python -m harness.spec_harness dashboard --root examples/minimal --task TASK-001
 python -m unittest discover -s tests -p "test_*.py"
 ```
 
 `context` validates the selected packet before rendering it. It prints each selected source with its recorded SHA-256 and `updated: current`; a missing or changed source blocks rendering. The configured `context.max_words` budget is enforced with an error—content is never truncated silently.
+
+`dashboard` renders a read-only end-of-round view with explicit progress bases, task counts, blockers, gates and resumption links. `close-round` validates and stores an immutable, idempotent snapshot in `rounds/`. See the [canonical round-dashboard rules](docs/dashboard-de-rodadas.md).
 
 Use `hash` only after an owner has assessed a source change:
 
@@ -46,6 +49,7 @@ For a beginner-friendly guide in Brazilian Portuguese, read the [user manual](do
 - evidence-based completion: metadata alone cannot mark work implemented or released;
 - Markdown local-reference, empty-file and conservative secret-pattern checks;
 - concise canonical documents instead of duplicate status reports.
+- deterministic end-of-round dashboards and versioned, idempotent closure snapshots.
 
 ## Boundaries
 

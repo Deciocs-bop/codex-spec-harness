@@ -1,11 +1,22 @@
 id: TASK-001
 objective: State the narrow outcome.
+owner: State the accountable role.
+depends_on: []
+status: pending
+stage: State the documentation stage.
 sources: [sources/source.md]
 decisions: [ADR-001]
 requirements: [REQ-001]
 scope: State owned files and exclusions.
-acceptance: State observable acceptance criteria.
-open_decisions: State owner decisions that remain open.
-blockers: State external blockers or none.
+acceptance: State the bounded acceptance outcome.
+acceptance_criteria:
+  - id: AC-001
+    status: pending
+    evidence: Add a versioned reference only when the criterion is met.
+open_decisions: []
+blockers: []
 autonomy: State decisions the agent may make and those requiring an owner.
 limits: Do not infer approval, implementation, test execution or release.
+resume:
+  file: status.md
+  section: State the exact section for resumption.

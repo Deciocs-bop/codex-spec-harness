@@ -1,0 +1,7 @@
+id: ROUND-001
+date: 2026-01-01
+task: TASK-001
+summary: The traceability and future contract boundary were documented; contract approval remains pending.
+documents_changed: [status.md, traceability.yaml, contracts.yaml]
+decisions_recorded: [ADR-001]
+scope_changes: []

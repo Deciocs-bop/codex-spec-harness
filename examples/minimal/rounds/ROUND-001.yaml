@@ -1,0 +1,76 @@
+input:
+  id: ROUND-001
+  date: 2026-01-01
+  task: TASK-001
+  summary: The traceability and future contract boundary were documented; contract
+    approval remains pending.
+  documents_changed:
+  - status.md
+  - traceability.yaml
+  - contracts.yaml
+  decisions_recorded:
+  - ADR-001
+  scope_changes: []
+validation:
+  status: passed
+  executed_on: '2026-09-21'
+  command: python -m harness.spec_harness check --root "examples/minimal"
+  source_version: 3d9a95c92ab4048c72ed76e1b34f010492a7e7dbba15a2f2360f9400e1ed19c6
+snapshot:
+  project: fictional-maintenance-service
+  task: TASK-001
+  task_path: tasks/TASK-001.yaml
+  stage: Specification
+  source_version: 3d9a95c92ab4048c72ed76e1b34f010492a7e7dbba15a2f2360f9400e1ed19c6
+  validated: true
+  validation_issues: []
+  progress:
+    task:
+      completed: 1
+      total: 2
+      percent: 50.0
+      provisional: false
+    stage:
+      completed: 0
+      total: 1
+      percent: 0.0
+      provisional: false
+    total:
+      completed: 0
+      total: 1
+      percent: 0.0
+      provisional: false
+  task_counts:
+    blocked: 0
+    cancelled: 0
+    completed: 0
+    in_progress: 1
+    pending: 0
+    unknown: 0
+  scope_ids:
+  - TASK-001
+  cancelled_ids: []
+  blockers: []
+  user_actions:
+  - action: Choose the fictional notification mechanism.
+    owner: fictional supervisor role
+    impact: Notification details cannot be specified until this choice is recorded.
+  source_review: []
+  next_actions:
+  - task: TASK-001
+    action: Define the future contract boundary for the fictional request and scheduling
+      flow.
+    reason: tarefa em andamento
+  resume:
+    file: status.md
+    section: Status
+  gates:
+  - gate: especificação
+    evidence: 2 specified; decisões e fontes são verificadas separadamente
+    policy: requires current sources, approved decisions and traceability
+  - gate: implementação
+    evidence: 0 implementation_ready; 0 implemented
+    policy: requires approved contracts, security review and planned tests
+  - gate: release
+    evidence: 0 released
+    policy: requires executed tests, executed evidence and release approval
