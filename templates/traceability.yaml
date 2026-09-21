@@ -1,0 +1,8 @@
+requirements:
+  - id: REQ-001
+    source: sources/source.md#anchor
+    decision: ADR-001
+    contract: future-contract:example
+    tests: [TEST-REQ-001]
+    evidence: {kind: planned}
+    state: specified

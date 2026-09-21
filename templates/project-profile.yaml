@@ -1,0 +1,7 @@
+project: replace-with-project-name
+context:
+  max_words: 350
+gates:
+  specification: requires approved decisions and traceability
+  implementation: requires approved contracts and security review
+  release: requires executed evidence and release approval

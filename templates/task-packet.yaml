@@ -1,0 +1,8 @@
+id: TASK-001
+objective: State the narrow outcome.
+sources: [sources/source.md]
+decisions: [ADR-001]
+scope: State owned files and exclusions.
+acceptance: State observable acceptance criteria.
+open_decisions: State owner decisions that remain open.
+limits: Do not infer approval, implementation, test execution or release.

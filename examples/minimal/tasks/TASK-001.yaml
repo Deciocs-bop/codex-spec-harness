@@ -1,0 +1,8 @@
+id: TASK-001
+objective: Define the future contract boundary for a fictional service request.
+sources: [sources/source.md]
+decisions: [ADR-001]
+scope: Create only the contract specification; exclude implementation and deployment.
+acceptance: The contract identifies approval ownership and its planned negative test.
+open_decisions: The external notification mechanism remains undecided.
+limits: Do not create a runtime API or claim executed test evidence.
