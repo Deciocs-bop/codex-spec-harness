@@ -1,0 +1,9 @@
+id: CP-SPEC-001
+scope: State the specification boundary.
+requirements: [REQ-001]
+checks:
+  - Sources have current hashes.
+  - Decisions and requirement references are valid.
+  - Contracts, planned tests and evidence are explicit.
+result: pending
+limits: This checkpoint does not approve implementation, executed tests or release.

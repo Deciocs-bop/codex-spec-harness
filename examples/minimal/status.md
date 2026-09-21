@@ -1,3 +1,3 @@
 # Status
 
-The fictional service has one specified requirement. Its API contract is future work. No implementation, test execution or release is approved.
+The fictional service has two specified requirements. Their contract is future work and tests are planned. Documentary evidence records current source hashes; no implementation, executed test or release is approved.

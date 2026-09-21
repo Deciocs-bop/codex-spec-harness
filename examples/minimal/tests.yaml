@@ -1,0 +1,7 @@
+tests:
+  - id: TEST-REQ-001
+    status: planned
+    scope: Verify a request record is accepted with the declared owner.
+  - id: TEST-REQ-002
+    status: planned
+    scope: Verify scheduling is rejected until explicit approval follows the request record.

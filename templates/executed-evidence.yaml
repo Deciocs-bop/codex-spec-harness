@@ -1,0 +1,7 @@
+evidence:
+  - id: EVD-001
+    kind: executed
+    path: evidence/EVD-001.md
+    source_hashes:
+      sources/source.md: replace-with-current-sha256
+    summary: Identify the immutable test result or approved evidence.

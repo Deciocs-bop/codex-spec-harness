@@ -1,0 +1,5 @@
+contracts:
+  - id: CON-REQUEST-SCHEDULING
+    status: future
+    owner: fictional platform team
+    scope: Future boundary for recording a request and applying explicit scheduling approval.

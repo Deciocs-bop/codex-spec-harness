@@ -1,0 +1,5 @@
+contracts:
+  - id: CON-001
+    status: future
+    owner: role
+    scope: Describe the contract boundary. A future contract does not authorize implementation.

@@ -1,0 +1,25 @@
+id: TASK-DASHBOARD-001
+objective: Add deterministic end-of-round dashboards and versioned round closure to the harness.
+owner: repository maintainer
+depends_on: []
+status: completed
+stage: Harness evolution
+sources: [README.md, docs/design.md]
+decisions: []
+requirements: []
+scope: Update the local CLI, templates, synthetic example, tests and operating documentation; exclude web applications, external services and deployment.
+acceptance: Dashboard preview and idempotent round closure expose traceable progress, blockers, continuity and independent gates.
+acceptance_criteria:
+  - id: AC-DASHBOARD
+    status: met
+    evidence: harness/spec_harness.py
+  - id: AC-TESTS
+    status: met
+    evidence: tests/test_spec_harness.py
+open_decisions: []
+blockers: []
+autonomy: Routine schema and CLI choices are authorized; business approvals and project release decisions remain with project owners.
+limits: Do not infer business approval, implementation, executed tests or release from dashboard metadata.
+resume:
+  file: docs/manual-do-usuario-pt-BR.md
+  section: Fechamento de rodada

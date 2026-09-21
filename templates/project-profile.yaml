@@ -1,6 +1,8 @@
 project: replace-with-project-name
 context:
   max_words: 350
+dashboard:
+  scope_complete: false
 gates:
   specification: requires approved decisions and traceability
   implementation: requires approved contracts and security review

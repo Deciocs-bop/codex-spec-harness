@@ -1,0 +1,7 @@
+id: ROUND-001
+date: 2026-01-01
+task: TASK-001
+summary: State the documentary outcome completed in this round.
+documents_changed: [status.md]
+decisions_recorded: []
+scope_changes: []

@@ -1,0 +1,4 @@
+tests:
+  - id: TEST-REQ-001
+    status: planned
+    scope: State the planned assertion. Use executed only with executed evidence.
