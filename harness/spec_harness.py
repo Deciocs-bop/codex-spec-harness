@@ -77,7 +77,13 @@ def read_yaml(path: Path) -> Any:
 
 
 def digest(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    content = path.read_bytes()
+    try:
+        text = content.decode("utf-8")
+    except UnicodeDecodeError:
+        return hashlib.sha256(content).hexdigest()
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
+    return hashlib.sha256(normalized).hexdigest()
 
 
 def resolve(root: Path, relative: str) -> Path:

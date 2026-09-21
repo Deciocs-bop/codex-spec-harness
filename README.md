@@ -27,7 +27,7 @@ Use `hash` only after an owner has assessed a source change:
 python -m harness.spec_harness hash --root examples/minimal
 ```
 
-Refreshing a source manifest does not refresh evidence hashes or approve the change.
+Refreshing a source manifest does not refresh evidence hashes or approve the change. UTF-8 source hashes normalize line endings so Windows and Linux checkouts do not create a false change; binary sources retain byte-for-byte hashes.
 
 ## Adopt in an existing project
 

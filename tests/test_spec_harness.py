@@ -37,6 +37,10 @@ class SpecHarnessTests(unittest.TestCase):
         self.assertIn("updated: current", output.getvalue())
         self.assertIn("Autonomy limits:", output.getvalue())
 
+    def test_line_endings_do_not_change_a_text_source_hash(self):
+        path = self.root / "sources" / "source.md"
+        path.write_bytes(b"\n".join(path.read_bytes().splitlines()) + b"\n")
+        self.assertEqual(validate(self.root), [])
     def test_changed_source_requires_review(self):
         path = self.root / "sources" / "source.md"
         path.write_text(path.read_text(encoding="utf-8") + "\nChanged.\n", encoding="utf-8")

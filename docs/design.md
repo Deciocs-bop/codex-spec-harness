@@ -1,6 +1,6 @@
 # Design
 
-The validator is deliberately small. YAML stores structured references and Markdown stores concise decision narratives. Source manifests and evidence hashes make a source change visible without treating a hash refresh as an approval.
+The validator is deliberately small. YAML stores structured references and Markdown stores concise decision narratives. Source manifests and evidence hashes make a source change visible without treating a hash refresh as an approval. UTF-8 text hashes normalize line endings; binary sources use their original bytes.
 
 A requirement references one source, approved decision, contract, test and evidence. Contracts are `approved` or `future`; tests are `planned` or `executed`; evidence is `documentary` or `executed`. `implemented` and `released` requirements need the approved/executed combination. These states describe evidence only and do not establish business truth.
 
