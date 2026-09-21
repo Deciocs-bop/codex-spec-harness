@@ -2,7 +2,16 @@ requirements:
   - id: REQ-001
     source: sources/source.md#service-request
     decision: ADR-001
-    contract: future-contract:service-request-api
-    tests: [TEST-REQ-001]
-    evidence: {kind: planned}
+    contract: CON-REQUEST-SCHEDULING
+    test: TEST-REQ-001
+    evidence: EVD-REQ-001
     state: specified
+    depends_on: []
+  - id: REQ-002
+    source: sources/source.md#scheduling-approval
+    decision: ADR-001
+    contract: CON-REQUEST-SCHEDULING
+    test: TEST-REQ-002
+    evidence: EVD-REQ-002
+    state: specified
+    depends_on: [REQ-001]

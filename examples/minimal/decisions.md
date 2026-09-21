@@ -1,1 +1,1 @@
-ADR-001 | approved | 2026-01-01 | A service request requires an explicit owner approval before scheduling. This approves the specification only.
+ADR-001 | approved | 2026-01-01 | Owner: fictional supervisor role; Decision: explicit approval is required before scheduling; Rationale: preserve accountable scheduling; Limits: approves this specification only.

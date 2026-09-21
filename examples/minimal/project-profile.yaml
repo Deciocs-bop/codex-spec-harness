@@ -2,6 +2,6 @@ project: fictional-maintenance-service
 context:
   max_words: 350
 gates:
-  specification: requires approved decisions and traceability
-  implementation: requires approved contracts and security review
-  release: requires executed evidence and release approval
+  specification: requires current sources, approved decisions and traceability
+  implementation: requires approved contracts, security review and planned tests
+  release: requires executed tests, executed evidence and release approval

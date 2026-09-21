@@ -1,8 +1,11 @@
 id: TASK-001
-objective: Define the future contract boundary for a fictional service request.
+objective: Define the future contract boundary for the fictional request and scheduling flow.
 sources: [sources/source.md]
 decisions: [ADR-001]
+requirements: [REQ-001, REQ-002]
 scope: Create only the contract specification; exclude implementation and deployment.
-acceptance: The contract identifies approval ownership and its planned negative test.
-open_decisions: The external notification mechanism remains undecided.
+acceptance: The trace identifies approval ownership, dependency and planned negative test.
+open_decisions: The fictional notification mechanism remains undecided.
+blockers: No external blocker; future contract approval is required before implementation.
+autonomy: The task may refine documentation links but cannot approve a contract or change the decision.
 limits: Do not create a runtime API or claim executed test evidence.
