@@ -35,6 +35,8 @@ Copy `templates/`, then create only the canonical artifacts needed for the first
 
 The included [synthetic example](examples/minimal/) has two dependent requirements and a [source-change scenario](examples/minimal/source-change-scenario.md).
 
+For a beginner-friendly guide in Brazilian Portuguese, read the [user manual](docs/manual-do-usuario-pt-BR.md).
+
 ## What it enforces
 
 - selective task context with an explicit word budget;
