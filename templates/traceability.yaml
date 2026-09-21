@@ -2,7 +2,8 @@ requirements:
   - id: REQ-001
     source: sources/source.md#anchor
     decision: ADR-001
-    contract: future-contract:example
-    tests: [TEST-REQ-001]
-    evidence: {kind: planned}
+    contract: CON-001
+    test: TEST-REQ-001
+    evidence: EVD-REQ-001
     state: specified
+    depends_on: []

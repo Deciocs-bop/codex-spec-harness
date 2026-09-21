@@ -2,7 +2,10 @@ id: TASK-001
 objective: State the narrow outcome.
 sources: [sources/source.md]
 decisions: [ADR-001]
+requirements: [REQ-001]
 scope: State owned files and exclusions.
 acceptance: State observable acceptance criteria.
 open_decisions: State owner decisions that remain open.
+blockers: State external blockers or none.
+autonomy: State decisions the agent may make and those requiring an owner.
 limits: Do not infer approval, implementation, test execution or release.
